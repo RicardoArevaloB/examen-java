@@ -25,9 +25,7 @@ public class CitaUi {
             System.out.println("4. Cambiar cita");
             System.out.println("5. Cancelar cita");
             System.out.println("6. Completar cita");
-            System.out.println("7. Ver citas de paciente");
-            System.out.println("8. Ver citas de doctor");
-            System.out.println("9. Salir");
+            System.out.println("7. Ir al menu principal");
             System.out.print("Elige: ");
 
             op = leerNumero();
@@ -51,19 +49,14 @@ public class CitaUi {
                 case 6:
                     completar();
                     break;
+
                 case 7:
-                    porPaciente();
-                    break;
-                case 8:
-                    porDoctor();
-                    break;
-                case 9:
-                    System.out.println("Chao!");
+                    System.out.println("Volviendo al menu principal...");
                     break;
                 default:
                     System.out.println("Opcion mala!");
             }
-        } while (op != 9);
+        } while (op != 7);
     }
 
     private void agendar() {
@@ -186,54 +179,6 @@ public class CitaUi {
                 System.out.println("Completada!");
             } else {
                 System.out.println("No se pudo completar");
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
-    private void porPaciente() {
-        System.out.print("\nID de paciente: ");
-        int id = leerNumero();
-
-        try {
-            List<Cita> citas = citaService.buscarCitasPorPaciente(id);
-
-            if (citas.isEmpty()) {
-                System.out.println("No hay citas");
-                return;
-            }
-
-            System.out.println("\nCitas encontradas:");
-            for (Cita c : citas) {
-                System.out.println("ID: " + c.getId() +
-                        " | Doctor: " + c.getMedicoId() +
-                        " | Fecha: " + c.getFechaHora().toString().replace("T", " ") +
-                        " | Estado: " + c.getEstado());
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
-
-    private void porDoctor() {
-        System.out.print("\nID de doctor: ");
-        int id = leerNumero();
-
-        try {
-            List<Cita> citas = citaService.buscarCitasPorMedico(id);
-
-            if (citas.isEmpty()) {
-                System.out.println("No hay citas");
-                return;
-            }
-
-            System.out.println("\nCitas encontradas:");
-            for (Cita c : citas) {
-                System.out.println("ID: " + c.getId() +
-                        " | Paciente: " + c.getPacienteId() +
-                        " | Fecha: " + c.getFechaHora().toString().replace("T", " ") +
-                        " | Estado: " + c.getEstado());
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());

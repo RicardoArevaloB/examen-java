@@ -46,10 +46,10 @@ public class PacienteUi {
                     borrar();
                     break;
                 case 6:
-                    System.out.println("Saliendo...");
+                    System.out.println("Volviendo al menu principal...");
                     break;
                 default:
-                    System.out.println("Opcion no valida!");
+                    System.out.println("Opcion no valida. Intente nuevamente.");
             }
         } while (op != 6);
     }

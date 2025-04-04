@@ -69,12 +69,24 @@ public class Main {
                     case 4:
                         interfazPaciente.gestionPacientes();
                         break;
+
+                    case 5:
+                        System.out.println("Gestion de Historiales de pacientes");
+                        break;
+                    case 6:
+                        System.out.println("Saliendo del programa...");
+                        break;
                     default:
                         System.out.println("Opcion no valida. intente de nuevo.");
+                        
                 }
-            }while (option !=7);
+            }while (option !=6);
                 
             
+        }catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return;
         }
+        
     }
 }

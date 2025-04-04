@@ -50,10 +50,10 @@ public class MedicoUi {
                     bySpecialty();
                     break;
                 case 7:
-                    System.out.println("Chao!");
+                    System.out.println("Volviendo al menú principal...");
                     break;
                 default:
-                    System.out.println("Oops! Error!");
+                    System.out.println("Opción no válida. Intente nuevamente.");
             }
         } while (op != 7);
     }
